@@ -1,1 +1,16 @@
 /* BASIC STYLES HERE */
+
+.card {
+  border: 2px solid #007B2D;
+}
+
+.imgBody {
+  border: 1px solid #E18700;
+}
+
+.imgBody img {
+  height: 42vh;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
