@@ -1,15 +1,15 @@
 /* BASIC STYLES HERE */
 
-.card {
-  border: 2px solid #007B2D;
-}
+.card {}
 
 .imgBody {
-  border: 1px solid #E18700;
+  border: 50px solid transparent;
+  padding: 15px;
+  border-image: url("https://doogeveneers.com/sites/default/files/styles/flexslider_full/public/birch-white-2.jpg?itok=OBl5zrNh") 30 stretch;
 }
 
 .imgBody img {
-  height: 42vh;
+  height: 55vh;
   width: 100%;
   object-fit: cover;
   object-position: center;
@@ -19,3 +19,20 @@
   font-family: 'Poiret One', sans-serif;
   font-weight: bolder;
 }
+
+
+body {
+  background-image: url("https://img.freepik.com/premium-vector/floral-monochrome-seamless-pattern-with-garden-flowers-plants-fabric-print-wallpaper-design_182787-740.jpg?w=2000");
+}
+
+
+header {
+  background-color: #e8e8e8;
+}
+
+
+/* .borderWood {
+  background-image: url("https://dominotiers.com/modules/custommade/uploads/image/261fcc29e0198469c81a3747b29e8c6f.jpg");
+  background-position: center;
+  background-size: cover;
+} */

@@ -15,7 +15,7 @@ export class Post {
 
   get PostCardTemplate() {
     return `
-      <div class="col-12 col-md-5 p-3">
+      <div class="col-7 m-5">
         <section class="row card">
 
     <div class="col-12 userProfile d-flex align-items-center">
