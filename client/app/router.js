@@ -1,3 +1,4 @@
+import { CommentsController } from "./controllers/CommentsController.js";
 import { PostsController } from "./controllers/PostsController.js";
 
 
@@ -8,7 +9,7 @@ import { PostsController } from "./controllers/PostsController.js";
 export const router = [
   {
     path: '',
-    controller: PostsController,
+    controller: [PostsController, CommentsController],
     // @ts-ignore
     view: null
   }
