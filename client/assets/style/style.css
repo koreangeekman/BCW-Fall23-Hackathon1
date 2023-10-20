@@ -20,6 +20,13 @@
   font-weight: bolder;
 }
 
+.activeImg {
+  height: 50dvh;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
 
 body {
   background-image: url("https://img.freepik.com/premium-vector/floral-monochrome-seamless-pattern-with-garden-flowers-plants-fabric-print-wallpaper-design_182787-740.jpg?w=2000");

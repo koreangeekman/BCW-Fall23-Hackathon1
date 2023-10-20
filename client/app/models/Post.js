@@ -50,12 +50,25 @@ export class Post {
     return `
     <div class="col-12 col-md-7 data-bs-toggle="modal"
     data-bs-target="#postFormModal">
-    <img class="img-fluid" src="${this.imgUrl}" alt="">
+    <img class="activeImg" src="${this.imgUrl}" alt="">
   </div>
   <div class="col-12 col-md-5">
-    <h2>At the ${this.location}</h2>
-    <h3>On ${this.createdAt.toLocaleDateString()}</h3>
-    <h3>At ${this.updatedAt.toLocaleTimeString()}</h3>
+    <h5>At: ${this.location}
+    On ${this.createdAt.toLocaleDateString()}
+    At ${this.updatedAt.toLocaleTimeString()}
+    </h5>
+
+    <form onsubmit="app.CommentsController.createComment(event)">
+    <div class="form-floating mb-3">
+    <input required type="text" name="body" class="form-control" id="body"
+      placeholder="comment...." maxlength="250">
+    <label for="body">Comment</label>
+    
+    <div>
+    <button type="submit" class="p-2 btn btn-success">Comment</button>
+  </div>
+  </div>
+</form>
     </div>
     `
   }
