@@ -24,6 +24,18 @@ class PostsService {
         return newPost
     }
 
+    async updatePost(PostId, content, userId) {
+        const toBeUpdated = await this.getPostById(PostId);
+        if (toBeUpdated.creatorId.toString() != userId) {
+            throw new Forbidden('get outta here!')
+        }
+        toBeUpdated.description = content.description || toBeUpdated.description
+        toBeUpdated.location = content.location || toBeUpdated.location
+        toBeUpdated.imgUrl = content.imgUrl || toBeUpdated.imgUrl
+        toBeUpdated.save();
+        return toBeUpdated
+    }
+
     async deletePost(postId, userId) {
         const deletePost = await this.getPostById(postId)
         if (userId != deletePost.creatorId.toString()) {
