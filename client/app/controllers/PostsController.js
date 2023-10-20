@@ -1,5 +1,6 @@
 import { AppState } from "../AppState.js"
 import { postsService } from "../services/PostsService.js"
+import { getFormData } from "../utils/FormHandler.js"
 import { Pop } from "../utils/Pop.js"
 import { setHTML } from "../utils/Writer.js"
 
@@ -27,6 +28,21 @@ export class PostsController {
       await postsService.getPosts()
     } catch (error) {
       console.error(error)
+      Pop.error(error)
+    }
+  }
+
+  async createPost(event) {
+    try {
+      event?.preventDefault()
+      const form = event.target
+      const postData = getFormData(form)
+      await postsService.createPost(postData)
+      form.reset()
+      bootstrap.Modal.getOrCreateInstance('#postFormModal').hide()
+      Pop.success('New post successfully created')
+    } catch (error) {
+      console.log(error)
       Pop.error(error)
     }
   }

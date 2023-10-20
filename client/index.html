@@ -102,7 +102,7 @@
         </div>
         <div class="modal-body">
           <!-- FORM -->
-          <form onsubmit="app.BirdsController.createBird(event)">
+          <form onsubmit="app.PostsController.createPost(event)">
 
             <div class="form-floating mb-3">
               <input required type="text" name="description" class="form-control" id="description"
@@ -111,12 +111,11 @@
             </div>
 
             <div class="form-floating mb-3">
-              <input type="url" name="imgUrl" class="form-control" id="imgUrl" placeholder="''Bird'' ImgUrl..."
-                maxlength="500">
+              <input type="url" name="imgUrl" class="form-control" id="imgUrl" placeholder="ImgUrl..." maxlength="500">
               <label for="imgUrl">Image Url</label>
             </div>
             <div class="form-floating mb-3">
-              <input type="text" name="location" class="form-control" id="location" placeholder="''Bird'' Location..."
+              <input type="text" name="location" class="form-control" id="location" placeholder="Location..."
                 minlength="10" maxlength="50">
               <label for="location">Location</label>
             </div>
