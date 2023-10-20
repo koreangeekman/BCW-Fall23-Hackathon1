@@ -1,4 +1,5 @@
 import { CommentsController } from "./controllers/CommentsController.js";
+import { LikesController } from "./controllers/LikesController.js";
 import { PostsController } from "./controllers/PostsController.js";
 
 
@@ -9,7 +10,7 @@ import { PostsController } from "./controllers/PostsController.js";
 export const router = [
   {
     path: '',
-    controller: [PostsController, CommentsController],
+    controller: [PostsController, CommentsController, LikesController],
     // @ts-ignore
     view: null
   }

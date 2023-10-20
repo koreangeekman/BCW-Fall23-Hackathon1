@@ -8,7 +8,7 @@ export class Post {
     this.createdAt = new Date(data.createdAt)
     this.updatedAt = new Date(data.updatedAt)
     this.creator = data.creator
-    this.likes = data.likes
+    this.likeCount = data.likeCount
   }
 
   get PostCardTemplate() {
@@ -34,7 +34,7 @@ export class Post {
               <span class="d-flex align-items-center">
                 <i class="fs-3 mdi mdi-thumb-up-outline"></i>
                 <i class="fs-3 mdi mdi-thumb-up"></i>
-                <p class="mb-0">${this.likes}</p>
+                <p class="mb-0">${this.likeCount}</p>
               </span>
             </span>
             <p class="commentText">${this.creator.name} • ${this.description}</p>
