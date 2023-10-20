@@ -18,34 +18,34 @@
 <body>
   <!-- SECTION HEADER -->
   <header>
-    <nav class="navbar navbar-dark navbar-expand bg-dark text-light px-2">
+    <nav class="navbar navbar-expand bg-light text-light px-2">
       <a class="navbar-brand" href="#">
-        <img src="https://codeworks.blob.core.windows.net/public/assets/img/cw-mark.png" height="45" alt=""
-          loading="lazy">
-        <span class="ml-2">NatureFrame</span>
+        <img src="./assets/img/logo.png" height="169" alt="">
       </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <!-- NAVLINKS -->
-          <!-- <a href="#/about" class="nav-link">About</a> -->
-        </div>
-      </div>
       <div class="flex-grow-1 justify-content-end align-items-center d-flex" id="authstate"></div>
     </nav>
     <!-- !SECTION -->
   </header>
 
   <!-- SECTION MAIN -->
-  <main>
+  <main class="container-fluid bg-light">
+    <section class="row justify-content-evenly" id="imageBoard">
 
-    <section id="router-view">
-      <!-- primary viewport -->
+      <div class="col-12 col-md-5 p-3">
+        <section class="row card">
+          <div class="col-12 userProfile">
+            <img height="69" alt="UserName"
+              src="https://media.istockphoto.com/id/1337144146/vector/default-avatar-profile-icon-vector.jpg?s=612x612&w=0&k=20&c=BIbFwuv7FxTWvh5S3vB6bkT0Qv8Vn8N5Ffseq84ClGI=">
+            <p class="mb-0">${UserName}</p>
+          </div>
+          <div class="col-12 p-0 imgBody"><img class="img-fluid"
+              src="https://images.unsplash.com/photo-1594329852649-012d9528deda?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c2NlbmljfGVufDB8fDB8fHww">
+          </div>
+          <div class="col-12 postBody">.</div>
+        </section>
+      </div>
+
     </section>
-
     <!-- !SECTION -->
   </main>
 
