@@ -17,4 +17,14 @@ export class LikesController {
       Pop.error(error)
     }
   }
+
+  async removeLike() {
+    try {
+      const removeLike = await likesService.removeLike()
+      console.log(removeLike)
+    } catch (error) {
+      console.error(error)
+      Pop.error(error)
+    }
+  }
 }

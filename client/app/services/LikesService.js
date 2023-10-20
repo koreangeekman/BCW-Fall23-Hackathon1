@@ -11,6 +11,9 @@ class LikesService {
     return res.data
   }
 
+  async removeLike() {
+    // const 
+  }
 }
 
 export const likesService = new LikesService()
