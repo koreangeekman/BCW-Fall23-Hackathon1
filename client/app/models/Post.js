@@ -64,11 +64,12 @@ export class Post {
       placeholder="comment...." maxlength="250">
     <label for="body">Comment</label>
     
-    <div>
+    <div class="d-flex justify-content-between">
     <button type="submit" class="p-2 btn btn-success">Comment</button>
-  </div>
-  </div>
-</form>
+    </div>
+    </div>
+    </form>
+    <p type="button"><i class="mdi mdi-heart-outline fs-2 text-danger"></i></p>
     </div>
     `
   }
