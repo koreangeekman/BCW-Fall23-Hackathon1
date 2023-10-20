@@ -14,13 +14,13 @@ export const PostSchema = new Schema({
 PostSchema.virtual("creator", {
     localField: "creatorId",
     foreignField: "_id",
-    ref: "Account",
-    justOne: true
+    justOne: true,
+    ref: "Account"
 })
 
 PostSchema.virtual("likeCount", {
-    count: true,
     localField: "_id",
     foreignField: "postId",
-    ref: "Likes"
+    count: true,
+    ref: "Like"
 })
