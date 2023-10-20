@@ -17,10 +17,10 @@ class LikesService {
         return like
     }
 
-    // async getLikesByPostId(postId) {
-    //     const likes = await dbContext.Likes.find({ postId: postId }).populate('creator', '-email -subs')
-    //     return likes
-    // }
+    async getLikesByPostId(postId, userId) {
+        const likes = await dbContext.Likes.find({ postId: postId, creatorId: userId }).populate('creator', '-email -subs')
+        return likes
+    }
 
 
 
