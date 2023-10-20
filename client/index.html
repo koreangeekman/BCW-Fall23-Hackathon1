@@ -21,11 +21,20 @@
 <body>
   <!-- SECTION HEADER -->
   <header>
-    <nav class="navbar navbar-expand text-dark px-2">
-      <a class="navbar-brand" href="#">
-        <img src="./assets/img/logo.png" height="169" alt="">
-      </a>
-      <div class="flex-grow-1 justify-content-end align-items-center d-flex" id="authstate"></div>
+    <nav class="navbar navbar-expand text-dark px-2 d-flex justify-content-between m-2">
+      <div>
+        <a class=" navbar-brand" href="#">
+          <img src="./assets/img/logo.png" height="169" alt="">
+        </a>
+      </div>
+      <div class="text-center">
+        <div class="flex-grow-1 d-block align-items-center d-flex justify-content-end mb-4" id="authstate">
+        </div>
+        <button class="btn btn-outline-dark fs-3 d-flex justify-content-center" data-bs-toggle="modal"
+          data-bs-target="#postFormModal">
+          Create Post
+        </button>
+      </div>
     </nav>
     <!-- !SECTION -->
   </header>
@@ -81,6 +90,55 @@
       <p class="mb-0"><small>Made by 🧙‍♂️🦸‍♂️👨‍🏭</small></p>
     </div>
   </footer>
+
+
+
+  <div class="modal fade" id="postFormModal" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="modalTitle">Create Post</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!-- FORM -->
+          <form onsubmit="app.BirdsController.createBird(event)">
+
+            <div class="form-floating mb-3">
+              <input required type="text" name="description" class="form-control" id="description"
+                placeholder="description...." minlength="1" maxlength="250">
+              <label for="description">description</label>
+            </div>
+
+            <div class="form-floating mb-3">
+              <input type="url" name="imgUrl" class="form-control" id="imgUrl" placeholder="''Bird'' ImgUrl..."
+                maxlength="500">
+              <label for="imgUrl">Image Url</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text" name="location" class="form-control" id="location" placeholder="''Bird'' Location..."
+                minlength="10" maxlength="50">
+              <label for="location">Location</label>
+            </div>
+
+
+            <div class="text-end">
+              <button type="submit" class="btn btn-outline-success">Submit</button>
+            </div>
+
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
 
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="https://cdn.auth0.com/js/auth0-spa-js/1.22/auth0-spa-js.production.js"></script>
