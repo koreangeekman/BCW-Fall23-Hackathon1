@@ -25,7 +25,7 @@ export class Post {
             </span>
           </div>
           <!-- IMG BODY -->
-          <div class="col-12 p-0 imgBody"><img class="img-fluid"
+          <div onclick="app.PostsController.setActivePost('${this.id}')" class="col-12 p-0 imgBody"><img class="img-fluid"
               src="${this.imgUrl}">
           </div>
           <!-- POST BODY -->
@@ -42,6 +42,21 @@ export class Post {
           </div>
           </section>
           </div>
+    `
+  }
+
+
+  get PostActiveTemplate() {
+    return `
+    <div class="col-12 col-md-7 data-bs-toggle="modal"
+    data-bs-target="#postFormModal">
+    <img class="img-fluid" src="${this.imgUrl}" alt="">
+  </div>
+  <div class="col-12 col-md-5">
+    <h2>At the ${this.location}</h2>
+    <h3>On ${this.createdAt.toLocaleDateString()}</h3>
+    <h3>At ${this.updatedAt.toLocaleTimeString()}</h3>
+    </div>
     `
   }
 

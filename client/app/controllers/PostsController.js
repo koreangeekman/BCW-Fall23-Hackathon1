@@ -13,11 +13,17 @@ function _drawPosts() {
   setHTML('imageBoard', content)
 }
 
+function _drawActivePost() {
+  const post = AppState.activePost
+  setHTML('postDetails', post.PostActiveTemplate)
+  bootstrap.Modal.getOrCreateInstance('#activePostModal').show()
+}
 export class PostsController {
   constructor() {
     // console.log('controller is good')
     this.getPosts()
     AppState.on('posts', _drawPosts)
+    AppState.on('activePost', _drawActivePost)
   }
 
   async getPosts() {
@@ -41,6 +47,15 @@ export class PostsController {
       Pop.success('New post successfully created')
     } catch (error) {
       console.log(error)
+      Pop.error(error)
+    }
+  }
+  setActivePost(postId) {
+    try {
+
+      postsService.setActivePost(postId)
+
+    } catch (error) {
       Pop.error(error)
     }
   }

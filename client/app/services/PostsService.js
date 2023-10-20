@@ -16,6 +16,16 @@ class PostsService {
     AppState.posts.push(newPosts)
     AppState.emit('posts')
   }
+
+
+  setActivePost(postId) {
+    const foundPost = AppState.posts.find(post => post.id == postId)
+    console.log(foundPost)
+    if (!foundPost) {
+      throw new Error(`bad post id: ${postId}`)
+    }
+    AppState.activePost = foundPost
+  }
 }
 
 export const postsService = new PostsService()
