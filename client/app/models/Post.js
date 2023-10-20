@@ -20,15 +20,15 @@ export class Post {
 
     <div class="col-12 userProfile d-flex align-items-center">
             <img height="69" alt="UserName"
-              src="${this.imgUrl}">
+              src="${this.creator.picture}" class="rounded-circle p-3">
             <span class="d-block">
-              <p class="mb-0">${this.creatorId.name}</p>
+              <p class="mb-0">${this.creator.name}</p>
               <p class="mb-0">${this.location}</p>
             </span>
           </div>
           <!-- IMG BODY -->
           <div class="col-12 p-0 imgBody"><img class="img-fluid"
-              src="https://images.unsplash.com/photo-1594329852649-012d9528deda?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c2NlbmljfGVufDB8fDB8fHww">
+              src="${this.imgUrl}">
           </div>
           <!-- POST BODY -->
           <div class="col-12 postBody">
@@ -39,7 +39,7 @@ export class Post {
                 <p class="mb-0">${this.likes}</p>
               </span>
             </span>
-            <p class="">${this.creatorId.name} • ${this.description}</p>
+            <p class="commentText">${this.creator.name} • ${this.description}</p>
 
           </div>
           </section>

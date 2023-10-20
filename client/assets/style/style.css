@@ -14,3 +14,8 @@
   object-fit: cover;
   object-position: center;
 }
+
+.commentText {
+  font-family: 'Poiret One', sans-serif;
+  font-weight: bolder;
+}
