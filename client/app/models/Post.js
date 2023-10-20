@@ -15,9 +15,12 @@ export class Post {
 
   get PostCardTemplate() {
     return `
+      <div class="col-12 col-md-5 p-3">
+        <section class="row card">
+
     <div class="col-12 userProfile d-flex align-items-center">
             <img height="69" alt="UserName"
-              src="https://media.istockphoto.com/id/1337144146/vector/default-avatar-profile-icon-vector.jpg?s=612x612&w=0&k=20&c=BIbFwuv7FxTWvh5S3vB6bkT0Qv8Vn8N5Ffseq84ClGI=">
+              src="${this.imgUrl}">
             <span class="d-block">
               <p class="mb-0">${this.creatorId.name}</p>
               <p class="mb-0">${this.location}</p>
@@ -35,16 +38,12 @@ export class Post {
                 <i class="fs-3 mdi mdi-thumb-up"></i>
                 <p class="mb-0">${this.likes}</p>
               </span>
-              <span class="d-flex align-items-center">
-                <p class="mb-0">DISLIKE</p>
-                <i class="fs-3 mdi mdi-thumb-down-outline"></i>
-                <i class="fs-3 mdi mdi-thumb-down"></i>
-              </span>
             </span>
             <p class="">${this.creatorId.name} • ${this.description}</p>
 
           </div>
-
+          </section>
+          </div>
     `
   }
 
