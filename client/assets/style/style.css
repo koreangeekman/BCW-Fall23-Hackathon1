@@ -24,13 +24,12 @@
   height: 50dvh;
   width: 100%;
   object-fit: cover;
-  object-position: top;
+  object-position: center;
 }
 
 
 body {
   background-image: url("https://media.istockphoto.com/id/1463995841/vector/hibiscus-flower-seamless-pattern-vector-illustration-batik-floral-design-background.jpg?s=612x612&w=0&k=20&c=mfB1oUQ4nckocnPCFKBFuRLhNqYDAMeF8XJkyCurCZ8=");
-  background-position: center;
 }
 
 
