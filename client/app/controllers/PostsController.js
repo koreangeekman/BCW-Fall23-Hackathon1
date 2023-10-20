@@ -16,12 +16,9 @@ function _drawPosts() {
 export class PostsController {
   constructor() {
     // console.log('controller is good')
-    AppState.on('account', this.getPosts)
+    this.getPosts()
     AppState.on('posts', _drawPosts)
   }
-
-
-
 
   async getPosts() {
     try {
@@ -39,6 +36,7 @@ export class PostsController {
       const postData = getFormData(form)
       await postsService.createPost(postData)
       form.reset()
+      // @ts-ignore
       bootstrap.Modal.getOrCreateInstance('#postFormModal').hide()
       Pop.success('New post successfully created')
     } catch (error) {

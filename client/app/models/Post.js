@@ -9,9 +9,7 @@ export class Post {
     this.updatedAt = new Date(data.updatedAt)
     this.creator = data.creator
     this.likes = data.likes
-
   }
-
 
   get PostCardTemplate() {
     return `
