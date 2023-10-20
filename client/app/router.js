@@ -1,4 +1,5 @@
-import { PostsController } from "./controllers/PostsController";
+import { PostsController } from "./controllers/PostsController.js";
+
 
 /**
  * Register your routes for the application here
@@ -7,7 +8,6 @@ import { PostsController } from "./controllers/PostsController";
 export const router = [
   {
     path: '',
-    // @ts-ignore
     controller: PostsController,
     // @ts-ignore
     view: null

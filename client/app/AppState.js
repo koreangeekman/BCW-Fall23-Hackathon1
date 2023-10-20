@@ -1,3 +1,4 @@
+import { Post } from "./models/Post.js"
 import { EventEmitter } from './utils/EventEmitter.js'
 import { isValidProp } from './utils/IsValidProp.js'
 import { loadState } from './utils/Store.js'
@@ -10,7 +11,10 @@ class ObservableAppState extends EventEmitter {
   account = null
   socketData = []
 
-  // Used to load initial data
+
+  /** @type {Post[]} */
+  posts = []
+
   init() {
 
   }
