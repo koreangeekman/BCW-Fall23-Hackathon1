@@ -4,7 +4,11 @@ import { BadRequest, Forbidden } from "../utils/Errors.js";
 
 
 
-class LikeService {
+class LikesService {
+    async getLikes() {
+        const likes = await dbContext.Likes.find()
+        return likes
+    }
 
     async createLike(likeData) {
         const like = await dbContext.Likes.create(likeData)
@@ -38,4 +42,4 @@ class LikeService {
 }
 
 
-export const likeService = new LikeService()
+export const likesService = new LikesService()
