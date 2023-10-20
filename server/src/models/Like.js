@@ -21,4 +21,4 @@ LikeSchema.virtual('post', {
     ref: "Post"
 })
 
-LikeSchema.index({ postId: 1, creatorId: 1, { unique: true }})
+LikeSchema.index({ postId: 1, creatorId: 1 }, { unique: true })
