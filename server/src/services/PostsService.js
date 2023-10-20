@@ -12,7 +12,7 @@ class PostsService {
 
     async getPosts() {
         //FIXME - add in likeCount
-        const posts = await dbContext.Posts.find().populate('creator', '-email -subs')
+        const posts = await dbContext.Posts.find().populate('creator likeCount', '-email -subs')
         return posts
     }
 
