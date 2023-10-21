@@ -72,4 +72,22 @@ export class PostsController {
       Pop.error(error)
     }
   }
+
+  async sortByDates() {
+    try {
+      await postsService.sortByDates()
+    } catch (error) {
+      console.error(error)
+      Pop.error(error)
+    }
+  }
+
+  async sortByLikes() {
+    try {
+      await postsService.sortByLikes()
+    } catch (error) {
+      console.error(error)
+      Pop.error(error)
+    }
+  }
 }

@@ -34,6 +34,15 @@ class PostsService {
     AppState.posts = AppState.posts.filter((post) => postId.id != postId)
     AppState.emit('posts')
   }
+
+  sortByDates() {
+    AppState.posts = AppState.posts.sort((a, b) => b.createdAt - a.createdAt)
+
+  }
+
+  sortByLikes() {
+    AppState.posts = AppState.posts.sort((a, b) => b.likeCount - a.likeCount)
+  }
 }
 
 export const postsService = new PostsService()
