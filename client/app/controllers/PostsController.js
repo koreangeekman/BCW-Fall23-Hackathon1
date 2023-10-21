@@ -24,6 +24,7 @@ export class PostsController {
     this.getPosts()
     AppState.on('posts', _drawPosts)
     AppState.on('activePost', _drawActivePost)
+    AppState.on('liked', _drawActivePost)
   }
 
   async getPosts() {

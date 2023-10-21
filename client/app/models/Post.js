@@ -9,6 +9,7 @@ export class Post {
     this.updatedAt = new Date(data.updatedAt)
     this.creator = data.creator
     this.likeCount = data.likeCount
+    this.liked = data.liked || false
   }
 
   get PostCardTemplate() {
@@ -35,8 +36,8 @@ export class Post {
           <div class="col-12 postBody">
             <span class="d-flex justify-content-between">
               <span class="d-flex align-items-center">
-              <i class="fs-3 mdi mdi-heart"></i>
-                <p class="mb-0">${this.likeCount}</p>
+                <i class="fs-3 mdi mdi-heart-multiple"></i>
+                <p class="mb-0 ps-2">${this.likeCount}</p>
               </span>
             </span>
             <p class="commentText">${this.creator.name} • ${this.description}</p>
@@ -71,10 +72,33 @@ export class Post {
             </div>
           </div>
         </form>
-        <i type="button" class="mdi mdi-heart-outline fs-2 text-danger" onclick="app.LikesController.createLike()"></i>
+        ${this.ifLikedToggle}
         <section id="commentDetails" class="row"></section>
       </div>
     </div>
+    `
+  }
+
+
+  get ifLikedToggle() {
+    if (this.liked) {
+      return `
+        <i type="button" class="mdi mdi-heart fs-2 text-danger" onclick="app.LikesController.removeLike()"></i>
+      `
+    }
+    return `
+        <i type="button" class="mdi mdi-heart-outline fs-2 text-danger" onclick="app.LikesController.createLike()"></i>
+    `
+  }
+
+  get ifLikedShow() {
+    if (this.liked) {
+      return `
+        <i class="fs-3 mdi mdi-heart-multiple"></i>
+      `
+    }
+    return `
+        <i class="fs-3 mdi mdi-heart-outline"></i>
     `
   }
 
