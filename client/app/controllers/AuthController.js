@@ -10,7 +10,7 @@ function drawUser() {
   const template = /* html */ `
     <div class="d-block">
       <div class="d-flex mb-2">${userAvatar}${button}</div>
-      <button class="btn btn-outline-dark fs-5 d-flex justify-content-center" data-bs-toggle="modal"
+      <button class="btn btn-outline-dark d-flex justify-content-end" data-bs-toggle="modal"
         data-bs-target="#postFormModal">Create Post
       </button>
     </div>
