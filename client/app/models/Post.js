@@ -55,10 +55,12 @@ export class Post {
       <img class="activeImg" src="${this.imgUrl}" alt="">
     </div>
     <div class="col-12 col-md-5">
-      <span class="d-flex justify-content-between">
+      <span class="d-flex justify-content-between align-items-center">
         <h5>At: ${this.location}</h5>
-        On ${this.createdAt.toLocaleDateString()}
-        At ${this.updatedAt.toLocaleTimeString()}
+        <span>
+          <p class="smallText mb-0">${this.createdAt.toLocaleDateString()}</p>
+          <p class="smallText mb-0">${this.updatedAt.toLocaleTimeString()}</p>
+        </span>
       </span>
       <form onsubmit="app.CommentsController.createComment(event)">
         <div class="form-floating mb-3">
