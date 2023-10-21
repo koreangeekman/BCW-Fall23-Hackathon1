@@ -23,8 +23,7 @@ class ObservableAppState extends EventEmitter {
   /** @type {Comment[]} */
   comments = []
 
-  /** @type {Like[]} */
-  liked = null
+  liked = false
 
   init() {
 

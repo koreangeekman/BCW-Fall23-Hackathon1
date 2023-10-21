@@ -4,10 +4,6 @@ import { getFormData } from "../utils/FormHandler.js";
 import { Pop } from "../utils/Pop.js";
 import { setHTML } from "../utils/Writer.js";
 
-
-
-
-
 function _drawComments() {
     const comments = AppState.comments
     let content = ''

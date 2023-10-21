@@ -1,11 +1,12 @@
 import { AppState } from "../AppState.js"
 import { Post } from "../models/Post.js"
 import { api } from "./AxiosService.js"
+import { likesService } from "./LikesService.js"
 
 class PostsService {
 
   async getPosts() {
-    const res = await api.get('api/posts')
+    const res = await api.get('api/posts');
     // console.log('Got Posts', res.data);
     const newPosts = res.data.map((postPOJO) => new Post(postPOJO))
     AppState.posts = newPosts
@@ -20,12 +21,14 @@ class PostsService {
   }
 
 
-  setActivePost(postId) {
+  async setActivePost(postId) {
     const foundPost = AppState.posts.find(post => post.id == postId)
-    console.log(foundPost)
+    // console.log(foundPost)
     if (!foundPost) {
       throw new Error(`bad post id: ${postId}`)
     }
+    const liked = await likesService.getLike(foundPost.id);
+    foundPost.liked = liked;
     AppState.activePost = foundPost
   }
 
