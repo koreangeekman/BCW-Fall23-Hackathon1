@@ -3,6 +3,7 @@ import { Post } from "../models/Post.js"
 import { api } from "./AxiosService.js"
 
 class PostsService {
+
   async getPosts() {
     const res = await api.get('api/posts')
     // console.log('Got Posts', res.data);
@@ -25,6 +26,16 @@ class PostsService {
       throw new Error(`bad post id: ${postId}`)
     }
     AppState.activePost = foundPost
+  }
+
+
+  sortByDates() {
+    AppState.posts = AppState.posts.sort((a, b) => b.createdAt - a.createdAt)
+
+  }
+
+  sortByLikes() {
+    AppState.posts = AppState.posts.sort((a, b) => b.likeCount - a.likeCount)
   }
 }
 
