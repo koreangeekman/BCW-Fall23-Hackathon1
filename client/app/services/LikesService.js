@@ -12,10 +12,13 @@ class LikesService {
     return res.data
   }
 
-  async removeLike(postId) {
-    const likeData = await api.get(`api/${postId}/likes`)
-    if (res.data.id != AppState.account.id) {
-      throw new console.error('Not your account');
+  async removeLike() {
+    const postId = AppState.activePost?.id
+    const likeData = await api.get(`api/posts/${postId}/likes`)
+    const accountId = AppState.account?.id
+    console.log('likeData.id', likeData.data.creatorId);
+    if (likeData.data.creatorId != accountId) {
+      console.error('Not your account');
     }
     const res = await api.delete(`api/likes/${likeData.id}`)
     console.log('deleted: ', res.data);
