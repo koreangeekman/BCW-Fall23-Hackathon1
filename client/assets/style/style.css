@@ -31,8 +31,9 @@ header {
   object-position: center;
 }
 
-.commentArea {
+#commentDetails {
   overflow-y: scroll;
+  height: 40dvh;
   scrollbar-color: red orange;
   scrollbar-width: thin;
 }

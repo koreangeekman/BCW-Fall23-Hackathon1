@@ -54,7 +54,6 @@ export class Post {
     <div class="col-12 col-md-7 data-bs-toggle="modal" data-bs-target="#postFormModal">
       <img class="activeImg" src="${this.imgUrl}" alt="">
     </div>
-    <section id="commentDetails" class="row"></section>
     <div class="col-12 col-md-5">
       <span class="d-flex justify-content-between align-items-center">
         <h5>At: ${this.location}</h5>
@@ -63,17 +62,18 @@ export class Post {
           <p class="smallText mb-0">${this.updatedAt.toLocaleTimeString()}</p>
         </span>
       </span>
-      <form onsubmit="app.CommentsController.createComment(event)">
-        <div class="form-floating mb-3">
-          <input required type="text" name="body" class="form-control" id="body"
-            placeholder="comment...." maxlength="250">
-          <label for="body">Comment</label>
-          <div class="d-flex justify-content-between">
-            <button type="submit" class="p-2 btn btn-success">Comment</button>
+        <form onsubmit="app.CommentsController.createComment(event)">
+          <div class="form-floating mb-3">
+            <input required type="text" name="body" class="form-control" id="body"
+              placeholder="comment...." maxlength="250">
+            <label for="body">Comment</label>
+            <div class="d-flex justify-content-between">
+              <button type="submit" class="p-2 btn btn-success">Comment</button>
+            </div>
           </div>
-        </div>
-      </form>
-      <i type="button" class="mdi mdi-heart-outline fs-2 text-danger"></i>
+        </form>
+        <i type="button" class="mdi mdi-heart-outline fs-2 text-danger"></i>
+        <section id="commentDetails" class="row"></section>
       </div>
     </div>
     `

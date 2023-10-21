@@ -13,9 +13,9 @@ export class Comment {
 
     get CommentTemplate() {
         return `
-        <div class="commentArea">
-        <h5>${this.creator.name}</h5>
-        <p>${this.body}</p>
+        <div>
+            <h5>${this.creator.name}</h5>
+            <p>${this.body}</p>
         </div>`
     }
 }
