@@ -43,8 +43,14 @@ function authButton(user) {
   if (AuthService.loading) { return '' }
   return user && user.isAuthenticated
     ? /* html */ `
-    <button class="btn btn-small btn-white text-muted selectable" onclick="app.AuthController.logout()">
-  <i class="mdi mdi-logout-variant f-16 text-white"></i></button>
+   
+        <button class="btn btn-small btn-white text-muted selectable" onclick="app.AuthController.logout()">
+        <i class="mdi mdi-logout-variant f-16 text-white"></i></button>
+     
+        <button class="btn btn-outline-dark fs-5 d-flex justify-content-center" data-bs-toggle="modal"
+        data-bs-target="#postFormModal">Create Post
+        </button>
+     
   `
     : /* html */ `
     <button class="btn btn-dark selectable" onclick="app.AuthController.login()">login</button>
