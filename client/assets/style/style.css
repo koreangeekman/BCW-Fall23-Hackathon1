@@ -37,6 +37,10 @@ header {
   background-color: #e8e8e8;
 }
 
+.authArea {
+  width: fit-content;
+}
+
 
 /* .borderWood {
   background-image: url("https://dominotiers.com/modules/custommade/uploads/image/261fcc29e0198469c81a3747b29e8c6f.jpg");
