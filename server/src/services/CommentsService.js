@@ -22,6 +22,7 @@ class CommentsService {
 
     async createComment(body) {
         const newComment = await dbContext.Comments.create(body);
+        await newComment.populate('creator', '-email -subs')
         return newComment
     }
 
