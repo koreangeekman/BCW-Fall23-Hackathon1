@@ -1,5 +1,6 @@
 export class Comment {
     constructor(data) {
+        this.id = data.id
         this.body = data.body
         this.creatorId = data.creatorId
         this.creator = data.creator
@@ -14,7 +15,10 @@ export class Comment {
     get CommentTemplate() {
         return `
         <div>
-            <h5>${this.creator.name}</h5>
+        <div class="d-flex justify-content-between">
+        <h5>${this.creator.name}</h5>
+        <h5 onclick="app.CommentsController.deleteComment('${this.id}')" class="bg-danger">🗑️</h5>
+        </div>
             <p>${this.body}</p>
         </div>`
     }

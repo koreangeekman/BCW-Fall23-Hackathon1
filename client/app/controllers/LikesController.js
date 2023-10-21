@@ -1,11 +1,12 @@
+import { AppState } from "../AppState.js"
+import { api } from "../services/AxiosService.js"
 import { likesService } from "../services/LikesService.js"
 import { Pop } from "../utils/Pop.js"
 
 
-
 export class LikesController {
   constructor() {
-
+    // AppState.on('activePost', likesService.nullLikes)
   }
 
   async createLike() {
@@ -20,8 +21,7 @@ export class LikesController {
 
   async removeLike() {
     try {
-      const removeLike = await likesService.removeLike()
-      console.log(removeLike)
+      await likesService.removeLike()
     } catch (error) {
       console.error(error)
       Pop.error(error)

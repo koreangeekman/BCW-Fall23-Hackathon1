@@ -52,6 +52,17 @@ export class CommentsController {
             console.error(error)
         }
     }
-
+    async deleteComment(commentId) {
+        try {
+            const wantsToDelete = await Pop.confirm('Are you sure about that?')
+            if (!wantsToDelete) {
+                return
+            }
+            await commentsService.deleteComment(commentId)
+        } catch (error) {
+            Pop.error(error)
+            console.error(error);
+        }
+    }
 
 }
