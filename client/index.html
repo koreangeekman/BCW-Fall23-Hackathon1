@@ -21,26 +21,29 @@
 <body>
   <!-- SECTION HEADER -->
   <header>
-    <nav class="navbar navbar-expand text-dark px-2 d-flex justify-content-between m-2 commentText">
-      <div>
-        <a class=" navbar-brand" href="#">
-          <img src="./assets/img/logo.png" height="150" alt="">
-        </a>
-      </div>
-      <div class="text-center align-self-baseline">
-        <div class="d-flex justify-content-end align-items-center" id="authstate">
+    <nav class="navbar d-flex justify-content-between px-2 m-2">
+      <img src="./assets/img/NatureFrameWhite.png" class="rounded-circle" height="150" alt="Nature Frame logo">
+      <div class="text-center align-self-baseline textFont authArea p-2">
+
+        <div class="d-flex justify-content-end align-items-center text-dark" id="authstate">
+          <!-- DRAW AUTH STATE + AUTHORIZED ACTION -->
         </div>
+
         <!-- <div>
           <i class="mdi mdi-sort"></i>
         </div> -->
 
         <div class="dropdown">
-          <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Sort Posts
+          <button class="btn btnGrey dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Sort posts
           </button>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#" onclick="app.PostsController.sortByDates()">Dates</a></li>
-            <li><a class="dropdown-item" href="#" onclick="app.PostsController.sortByLikes()">Likes</a></li>
+          <ul class="dropdown-menu ms-2 p-0 sortBy">
+            <li type="button" class="dropdown-item rounded" onclick="app.PostsController.sortByDates()">
+              <i class="fs-5 mdi mdi-calendar"></i> Dates
+            </li>
+            <li type="button" class="dropdown-item rounded" onclick="app.PostsController.sortByLikes()">
+              <i class="fs-5 mdi mdi-heart-multiple"></i> Likes
+            </li>
           </ul>
         </div>
 
@@ -50,7 +53,7 @@
   </header>
 
   <!-- SECTION MAIN -->
-  <main class="container-fluid commentText">
+  <main class="container-fluid textFont">
     <section class="row justify-content-evenly" id="imageBoard">
 
       <!-- <div class="col-12 col-md-5 p-3">

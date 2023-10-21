@@ -3,12 +3,46 @@ body {
   background-image: url("https://media.istockphoto.com/id/1463995841/vector/hibiscus-flower-seamless-pattern-vector-illustration-batik-floral-design-background.jpg?s=612x612&w=0&k=20&c=mfB1oUQ4nckocnPCFKBFuRLhNqYDAMeF8XJkyCurCZ8=");
 }
 
-header {
-  background-color: #e8e8e8;
+nav img {
+  box-shadow: 0 0 8px #E18700;
+}
+
+#imageBoard {
+  margin-top: -8rem;
 }
 
 .authArea {
-  width: fit-content;
+  background-color: #8e8e8e24;
+  box-shadow: 0 0 8px #8e8e8eb9;
+  /* text-shadow: 0 0 2px black; */
+  border-radius: 2rem;
+}
+
+.btnGrey {
+  background-color: #8e8e8eB9 !important;
+  color: black !important;
+  text-shadow: 0 0 1px black;
+  font-weight: bolder !important;
+}
+
+.sortBy {
+  background-color: #8e8e8eB9 !important;
+  font-weight: bolder !important;
+  width: fit-content !important;
+}
+
+.sortBy li {
+  /* color: black !important; */
+  font-weight: bolder !important;
+}
+
+.sortBy li:hover {
+  color: #E18700 !important;
+}
+
+.textFont {
+  font-family: 'Poiret One', sans-serif;
+  font-weight: bold;
 }
 
 .imgBody {
@@ -43,9 +77,4 @@ header {
   font-size: .75rem;
   color: grey;
   text-align: right;
-}
-
-.commentText {
-  font-family: 'Poiret One', sans-serif;
-  font-weight: bolder;
 }

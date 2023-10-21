@@ -49,10 +49,10 @@ function authButton(user) {
     <div class="d-inline">
     <img class="rounded-circle" src="${user.picture}" alt="${user.nickname}" height="45"/>
     <span class="mx-1">${user.nickname}</span>
-        <button class="btn btn-small btn-white text-muted selectable" onclick="app.AuthController.logout()">
-        <i class="mdi mdi-logout-variant f-16 text-white"></i></button>
+        <button class="btn btn-small btn-white selectable rounded-circle" onclick="app.AuthController.logout()">
+        <i class="mdi mdi-logout-variant f-16 text-secondary"></i></button>
     
-        <button class="btn btn-outline-dark d-flex form-control justify-content-center mt-2 " data-bs-toggle="modal"
+        <button class="btn btnGrey d-flex form-control justify-content-center mt-2" data-bs-toggle="modal"
         data-bs-target="#postFormModal">Create Post
       </button>
     </div>
