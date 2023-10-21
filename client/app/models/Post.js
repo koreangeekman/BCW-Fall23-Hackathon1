@@ -16,7 +16,8 @@ export class Post {
       <div class="col-7 m-5">
         <section class="row card">
 
-    <div class="col-12 userProfile d-flex align-items-center">
+          <!-- USER PROFILE -->
+          <div class="col-12 userProfile d-flex align-items-center">
             <img height="69" alt="UserName"
               src="${this.creator.picture}" class="rounded-circle p-3">
             <span class="d-block">
@@ -24,10 +25,12 @@ export class Post {
               <p class="mb-0">${this.location}</p>
             </span>
           </div>
+
           <!-- IMG BODY -->
           <div onclick="app.PostsController.setActivePost('${this.id}')" class="col-12 p-0 imgBody"><img class="img-fluid"
               src="${this.imgUrl}">
           </div>
+
           <!-- POST BODY -->
           <div class="col-12 postBody">
             <span class="d-flex justify-content-between">
@@ -40,40 +43,40 @@ export class Post {
             <p class="commentText">${this.creator.name} • ${this.description}</p>
 
           </div>
-          </section>
-          </div>
+        </section>
+      </div>
     `
   }
 
 
   get PostActiveTemplate() {
     return `
-    <div class="col-12 col-md-7 data-bs-toggle="modal"
-    data-bs-target="#postFormModal">
-    <img class="activeImg" src="${this.imgUrl}" alt="">
-  </div>
-  <div class="col-12 col-md-5">
-    <h5>At: ${this.location}
-    On ${this.createdAt.toLocaleDateString()}
-    At ${this.updatedAt.toLocaleTimeString()}
-    </h5>
-
-    <form onsubmit="app.CommentsController.createComment(event)">
-    <div class="form-floating mb-3">
-    <input required type="text" name="body" class="form-control" id="body"
-      placeholder="comment...." maxlength="250">
-    <label for="body">Comment</label>
-    
-    <div class="d-flex justify-content-between">
-    <button type="submit" class="p-2 btn btn-success">Comment</button>
+    <div class="col-12 col-md-7 data-bs-toggle="modal" data-bs-target="#postFormModal">
+      <img class="activeImg" src="${this.imgUrl}" alt="">
     </div>
     <section id="commentDetails" class="row"></section>
+    <div class="col-12 col-md-5">
+      <span class="d-flex justify-content-between align-items-center">
+        <h5>At: ${this.location}</h5>
+        <span>
+          <p class="smallText mb-0">${this.createdAt.toLocaleDateString()}</p>
+          <p class="smallText mb-0">${this.updatedAt.toLocaleTimeString()}</p>
+        </span>
+      </span>
+      <form onsubmit="app.CommentsController.createComment(event)">
+        <div class="form-floating mb-3">
+          <input required type="text" name="body" class="form-control" id="body"
+            placeholder="comment...." maxlength="250">
+          <label for="body">Comment</label>
+          <div class="d-flex justify-content-between">
+            <button type="submit" class="p-2 btn btn-success">Comment</button>
+          </div>
+        </div>
+      </form>
+      <i type="button" class="mdi mdi-heart-outline fs-2 text-danger"></i>
+      </div>
     </div>
-    </form>
-    <p type="button"><i class="mdi mdi-heart-outline fs-2 text-danger"></i></p>
-    </div>
-    </div>`
-
+    `
   }
 
 }

@@ -1,6 +1,15 @@
 /* BASIC STYLES HERE */
+body {
+  background-image: url("https://media.istockphoto.com/id/1463995841/vector/hibiscus-flower-seamless-pattern-vector-illustration-batik-floral-design-background.jpg?s=612x612&w=0&k=20&c=mfB1oUQ4nckocnPCFKBFuRLhNqYDAMeF8XJkyCurCZ8=");
+}
 
-.card {}
+header {
+  background-color: #e8e8e8;
+}
+
+.authArea {
+  width: fit-content;
+}
 
 .imgBody {
   border: 50px solid transparent;
@@ -13,11 +22,6 @@
   width: 100%;
   object-fit: cover;
   object-position: center;
-}
-
-.commentText {
-  font-family: 'Poiret One', sans-serif;
-  font-weight: bolder;
 }
 
 .activeImg {
@@ -33,19 +37,14 @@
   scrollbar-width: thin;
 }
 
-
-body {
-  background-image: url("https://media.istockphoto.com/id/1463995841/vector/hibiscus-flower-seamless-pattern-vector-illustration-batik-floral-design-background.jpg?s=612x612&w=0&k=20&c=mfB1oUQ4nckocnPCFKBFuRLhNqYDAMeF8XJkyCurCZ8=");
+.smallText {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: .75rem;
+  color: grey;
+  text-align: right;
 }
 
-
-header {
-  background-color: #e8e8e8;
+.commentText {
+  font-family: 'Poiret One', sans-serif;
+  font-weight: bolder;
 }
-
-
-/* .borderWood {
-  background-image: url("https://dominotiers.com/modules/custommade/uploads/image/261fcc29e0198469c81a3747b29e8c6f.jpg");
-  background-position: center;
-  background-size: cover;
-} */

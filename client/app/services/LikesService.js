@@ -12,12 +12,17 @@ class LikesService {
     return res.data
   }
 
-  async removeLike(postId) {
-    const likeData = await api.get(`api/${postId}/likes`)
-    if (res.data.id != AppState.account.id) {
-      throw new console.error('Not your account');
+  async removeLike() {
+    const postId = AppState.activePost?.id
+    let res = await api.get(`api/posts/${postId}/likes`) // technically an array of objects (but only one)
+    const likeData = res.data[0] // pull out just that first and only object
+    const accountId = AppState.account?.id
+    const creatorId = likeData.creatorId
+    console.log('likeData.data', creatorId);
+    if (creatorId != accountId) { // validate active user vs returned object creator
+      console.error('Not your account', creatorId, 'vs', accountId);
     }
-    const res = await api.delete(`api/likes/${likeData.id}`)
+    res = await api.delete(`api/likes/${likeData.id}`)
     console.log('deleted: ', res.data);
   }
 }
