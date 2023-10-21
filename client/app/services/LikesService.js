@@ -38,7 +38,7 @@ class LikesService {
       console.error('Not your account', creatorId, 'vs', accountId);
     }
     res = await api.delete(`api/likes/${likeData.id}`)
-    console.log('deleted post: ', res.data);
+    console.log('removed like: ', res.data);
   }
 }
 
