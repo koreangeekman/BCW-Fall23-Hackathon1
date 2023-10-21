@@ -71,7 +71,8 @@ export class Post {
     </form>
     <p type="button"><i class="mdi mdi-heart-outline fs-2 text-danger"></i></p>
     </div>
-    `
+    </div>`
+
   }
 
 }
