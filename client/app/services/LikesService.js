@@ -1,4 +1,5 @@
 import { AppState } from "../AppState.js"
+import { Pop } from "../utils/Pop.js"
 import { api } from "./AxiosService.js"
 
 
@@ -11,8 +12,13 @@ class LikesService {
     return res.data
   }
 
-  async removeLike() {
-    // const 
+  async removeLike(postId) {
+    const likeData = await api.get(`api/${postId}/likes`)
+    if (res.data.id != AppState.account.id) {
+      throw new console.error('Not your account');
+    }
+    const res = await api.delete(`api/likes/${likeData.id}`)
+    console.log('deleted: ', res.data);
   }
 }
 
