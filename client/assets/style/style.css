@@ -27,6 +27,12 @@
   object-position: center;
 }
 
+.commentArea {
+  overflow-y: scroll;
+  scrollbar-color: red orange;
+  scrollbar-width: thin;
+}
+
 
 body {
   background-image: url("https://media.istockphoto.com/id/1463995841/vector/hibiscus-flower-seamless-pattern-vector-illustration-batik-floral-design-background.jpg?s=612x612&w=0&k=20&c=mfB1oUQ4nckocnPCFKBFuRLhNqYDAMeF8XJkyCurCZ8=");

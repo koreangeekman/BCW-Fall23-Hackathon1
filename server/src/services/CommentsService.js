@@ -8,6 +8,10 @@ async function _getCommentById(commentId) {
     return comment
 }
 class CommentsService {
+    async getCommentsByPostId(postId) {
+        const comments = await dbContext.Comments.find({ postId: postId }).populate('creator', '-email -subs')
+        return comments
+    }
 
     async getComments() {
         const comments = await dbContext.Comments.find();

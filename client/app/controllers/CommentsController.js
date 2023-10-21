@@ -12,14 +12,14 @@ function _drawComments() {
     const comments = AppState.comments
     let content = ''
     comments.forEach(comment => content += comment.CommentTemplate)
-    setHTML('postDetails', content)
+    setHTML('commentDetails', content)
 }
 
 
 export class CommentsController {
     constructor() {
+        AppState.on('activePost', this.getCommentsByPostId)
         AppState.on('comments', _drawComments)
-        // AppState.on('activePost', this.getCommentsByPostId)
     }
 
     async createComment(event) {

@@ -2,6 +2,7 @@ import BaseController from "../utils/BaseController.js";
 import { Auth0Provider } from "@bcwdev/auth0provider";
 import { postsService } from "../services/PostsService.js";
 import { likesService } from "../services/LikesService.js";
+import { commentsService } from "../services/CommentsService.js";
 
 export class PostsController extends BaseController {
     constructor() {
@@ -9,6 +10,7 @@ export class PostsController extends BaseController {
         this.router
             .get('', this.getPosts)
             .get('/:postId', this.getPostById)
+            .get('/:postId/comments', this.getCommentsByPostId)
             .use(Auth0Provider.getAuthorizedUserInfo)
             .get('/:postId/likes', this.getLikesByPostId)
             .post('', this.createPost)
@@ -33,6 +35,16 @@ export class PostsController extends BaseController {
             return res.send(post)
 
         } catch (error) { next(error) }
+    }
+
+    async getCommentsByPostId(req, res, next) {
+        try {
+            const postId = req.params.postId
+            const comments = await commentsService.getCommentsByPostId(postId)
+            return res.send(comments)
+        } catch (error) {
+            next(error)
+        }
     }
 
     // vv AUTHORIZATION REQUIRED BELOW vv

@@ -67,6 +67,7 @@ export class Post {
     <div class="d-flex justify-content-between">
     <button type="submit" class="p-2 btn btn-success">Comment</button>
     </div>
+    <section id="commentDetails" class="row"></section>
     </div>
     </form>
     <p type="button"><i class="mdi mdi-heart-outline fs-2 text-danger"></i></p>
