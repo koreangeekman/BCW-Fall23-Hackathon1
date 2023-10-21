@@ -35,8 +35,7 @@ export class Post {
           <div class="col-12 postBody">
             <span class="d-flex justify-content-between">
               <span class="d-flex align-items-center">
-                <i class="fs-3 mdi mdi-thumb-up-outline"></i>
-                <i class="fs-3 mdi mdi-thumb-up"></i>
+              <i class="fs-3 mdi mdi-heart"></i>
                 <p class="mb-0">${this.likeCount}</p>
               </span>
             </span>

@@ -18,12 +18,12 @@ class LikesService {
     const likeData = res.data[0] // pull out just that first and only object
     const accountId = AppState.account?.id
     const creatorId = likeData.creatorId
-    console.log('likeData.data', creatorId);
+    console.log('likeData.data', likeData);
     if (creatorId != accountId) { // validate active user vs returned object creator
       console.error('Not your account', creatorId, 'vs', accountId);
     }
     res = await api.delete(`api/likes/${likeData.id}`)
-    console.log('deleted: ', res.data);
+    console.log('deleted post: ', res.data);
   }
 }
 

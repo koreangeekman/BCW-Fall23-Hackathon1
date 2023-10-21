@@ -1,4 +1,5 @@
 import { Comment } from "./models/Comment.js"
+import { Like } from "./models/Like.js"
 import { Post } from "./models/Post.js"
 import { EventEmitter } from './utils/EventEmitter.js'
 import { isValidProp } from './utils/IsValidProp.js'
@@ -22,6 +23,8 @@ class ObservableAppState extends EventEmitter {
   /** @type {Comment[]} */
   comments = []
 
+  /** @type {Like[]} */
+  liked = null
 
   init() {
 

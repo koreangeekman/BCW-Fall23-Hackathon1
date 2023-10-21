@@ -9,6 +9,7 @@ class PostsService {
     // console.log('Got Posts', res.data);
     const newPosts = res.data.map((postPOJO) => new Post(postPOJO))
     AppState.posts = newPosts
+    this.sortByLikes()
   }
 
   async createPost(postData) {
