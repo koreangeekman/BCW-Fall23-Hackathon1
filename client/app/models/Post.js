@@ -72,7 +72,7 @@ export class Post {
             </div>
           </div>
         </form>
-        <i type="button" class="mdi mdi-heart-outline fs-2 text-danger"></i>
+        <i type="button" class="mdi mdi-heart-outline fs-2 text-danger" onclick="app.LikesController.createLike()"></i>
         <section id="commentDetails" class="row"></section>
       </div>
     </div>
