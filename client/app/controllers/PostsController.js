@@ -59,4 +59,17 @@ export class PostsController {
       Pop.error(error)
     }
   }
+
+  async removePost() {
+    try {
+      const yes = await Pop.confirm('Are you sure you want to delete this post?')
+      if (!yes) {
+        return
+      }
+      await postsService.removePost()
+    } catch (error) {
+      console.error(error)
+      Pop.error(error)
+    }
+  }
 }

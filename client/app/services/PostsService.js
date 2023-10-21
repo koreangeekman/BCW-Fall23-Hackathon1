@@ -3,6 +3,7 @@ import { Post } from "../models/Post.js"
 import { api } from "./AxiosService.js"
 
 class PostsService {
+
   async getPosts() {
     const res = await api.get('api/posts')
     // console.log('Got Posts', res.data);
@@ -25,6 +26,13 @@ class PostsService {
       throw new Error(`bad post id: ${postId}`)
     }
     AppState.activePost = foundPost
+  }
+
+  async removePost() {
+    const postId = AppState.activePost?.id
+    const res = await api.delete(`api/posts/${postId}`)
+    AppState.posts = AppState.posts.filter((post) => postId.id != postId)
+    AppState.emit('posts')
   }
 }
 
