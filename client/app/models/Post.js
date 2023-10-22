@@ -14,35 +14,33 @@ export class Post {
 
   get PostCardTemplate() {
     return `
-      <div class="col-7 m-5">
-        <section class="row card">
-
-          <!-- USER PROFILE -->
-          <div class="col-12 userProfile d-flex align-items-center">
-            <img height="69" alt="UserName"
-              src="${this.creator.picture}" class="rounded-circle p-3">
-            <span class="d-block">
-              <p class="mb-0">${this.creator.name}</p>
-              <p class="mb-0">${this.location}</p>
-            </span>
-          </div>
+      <div class="col-12 m-0 p-0">
+        <section class="row postCard p-3 pb-0 my-3">
 
           <!-- IMG BODY -->
-          <div onclick="app.PostsController.setActivePost('${this.id}')" class="col-12 p-0 imgBody"><img class="img-fluid"
-              src="${this.imgUrl}">
+          <div onclick="app.PostsController.setActivePost('${this.id}')" class="col-12 p-0 imgBody">
+            <img class="img-fluid" src="${this.imgUrl}">
           </div>
 
-          <!-- POST BODY -->
-          <div class="col-12 postBody">
-            <span class="d-flex justify-content-between">
-              <span class="d-flex align-items-center">
+          <!-- USER PROFILE -->
+          <div class="col-12 d-flex justify-content-between align-items-center m-0 p-2 postBody">
+            <span class="d-flex align-items-center">
+              <span class="d-flex align-items-center pe-3">
+              <p class="mb-0 px-2">${this.likeCount}</p>
                 <i class="fs-3 mdi mdi-heart-multiple"></i>
-                <p class="mb-0 ps-2">${this.likeCount}</p>
               </span>
+              <p class="mb-0 commentText">${this.creator.name} • ${this.description}</p>
             </span>
-            <p class="commentText">${this.creator.name} • ${this.description}</p>
-
+            
+            <span class="d-flex align-items-center">
+              <span class="d-block px-3">
+                <p class="mb-0">${this.creator.name}</p>
+                <p class="mb-0">${this.location}</p>
+              </span>
+              <img alt="${this.creator.name}" src="${this.creator.picture}" height="50px" class="rounded-circle">
+            </span>
           </div>
+
         </section>
       </div>
     `

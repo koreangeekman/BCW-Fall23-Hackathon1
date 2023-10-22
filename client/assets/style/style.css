@@ -8,25 +8,25 @@ nav img {
 }
 
 #imageBoard {
-  margin-top: -8rem;
+  margin: -88px 180px 0 180px;
 }
 
 .authArea {
   background-color: #8e8e8e24;
-  box-shadow: 0 0 8px #8e8e8eb9;
+  box-shadow: 0 0 8px #ababab8b;
   /* text-shadow: 0 0 2px black; */
   border-radius: 2rem;
 }
 
 .btnGrey {
-  background-color: #8e8e8eB9 !important;
+  background-color: #ababab8b !important;
   color: black !important;
   text-shadow: 0 0 1px black;
   font-weight: bolder !important;
 }
 
 .sortBy {
-  background-color: #8e8e8eB9 !important;
+  background-color: #ababab8b !important;
   font-weight: bolder !important;
   width: fit-content !important;
 }
@@ -45,10 +45,31 @@ nav img {
   font-weight: bold;
 }
 
+/* SECTION IMAGE GALLERY */
+
+.postCard {
+  pointer-events: none;
+  background-color: transparent;
+  transition: .5s;
+  border-radius: 1rem;
+}
+
+.postCard:hover {
+  background-color: white;
+}
+
+.postBody {
+  opacity: 0;
+  transition: .4s;
+}
+
+.imgBody:hover+.postBody {
+  opacity: 1;
+}
+
 .imgBody {
-  border: 50px solid transparent;
-  padding: 15px;
-  border-image: url("https://doogeveneers.com/sites/default/files/styles/flexslider_full/public/birch-white-2.jpg?itok=OBl5zrNh") 30 stretch;
+  border: 48px solid;
+  border-image: url("https://doogeveneers.com/sites/default/files/styles/flexslider_full/public/birch-white-2.jpg") 32;
 }
 
 .imgBody img {
@@ -56,7 +77,10 @@ nav img {
   width: 100%;
   object-fit: cover;
   object-position: center;
+  pointer-events: auto;
 }
+
+/* SECTION ACTIVE IMAGE */
 
 .activeImg {
   height: 50dvh;
@@ -75,6 +99,13 @@ nav img {
 .smallText {
   font-family: 'Courier New', Courier, monospace;
   font-size: .75rem;
-  color: grey;
+  color: darkgray;
   text-align: right;
+}
+
+@media (max-width:1200px) {
+  #imageBoard {
+    margin: -1rem 1rem;
+  }
+
 }
