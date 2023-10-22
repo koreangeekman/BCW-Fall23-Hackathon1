@@ -19,156 +19,109 @@
 </head>
 
 <body>
-  <!-- SECTION HEADER -->
-  <header>
-    <nav class="navbar d-flex justify-content-between px-2 m-2">
-      <img src="./assets/img/NatureFrameWhite.png" class="rounded-circle" height="150" alt="Nature Frame logo">
-      <div class="text-center align-self-baseline textFont authArea p-2">
-
-        <div class="d-flex justify-content-end align-items-center text-dark" id="authstate">
-          <!-- DRAW AUTH STATE + AUTHORIZED ACTION -->
-        </div>
-
-        <!-- <div>
-          <i class="mdi mdi-sort"></i>
-        </div> -->
-
-        <div class="dropdown">
-          <button class="btn btnGrey dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Sort posts
-          </button>
-          <ul class="dropdown-menu ms-2 p-0 sortBy">
-            <li type="button" class="dropdown-item rounded" onclick="app.PostsController.sortByDates()">
-              <i class="fs-5 mdi mdi-calendar"></i> Dates
-            </li>
-            <li type="button" class="dropdown-item rounded" onclick="app.PostsController.sortByLikes()">
-              <i class="fs-5 mdi mdi-heart-multiple"></i> Likes
-            </li>
-          </ul>
-        </div>
-
-      </div>
-    </nav>
-    <!-- !SECTION -->
-  </header>
 
   <!-- SECTION MAIN -->
   <main class="container-fluid textFont">
-    <section class="row" id="imageBoard">
+    <div class="row">
+      <section class="col-12 col-xxl-2 d-flex justify-content-center px-0 py-3">
+        <nav class="d-flex flex-column m-0 p-0">
+          <img src="./assets/img/NatureFrameWhite.png" class="rounded-circle align-self-center my-3" height="150"
+            alt="Nature Frame logo">
+          <div class="text-center no-select">
+            <p class="mb-0"><small>Made by 🧙‍♂️🦸‍♂️👨‍🏭🧘🏼‍♀️</small></p>
+          </div>
+          <div class="text-center align-self-baseline textFont authArea p-2 mt-3">
+            <div class="d-flex justify-content-end align-items-center text-dark" id="authstate">
+              <!-- DRAW AUTH STATE + AUTHORIZED ACTION -->
+            </div>
+            <div class="dropdown">
+              <button class="btn btnGrey dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Sort posts
+              </button>
+              <ul class="dropdown-menu ms-2 p-0 sortBy">
+                <li type="button" class="dropdown-item rounded" onclick="app.PostsController.sortByDates()">
+                  <i class="fs-5 mdi mdi-calendar"></i> Dates
+                </li>
+                <li type="button" class="dropdown-item rounded" onclick="app.PostsController.sortByLikes()">
+                  <i class="fs-5 mdi mdi-heart-multiple"></i> Likes
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
 
-      <!-- <div class="col-12 col-md-5 p-3">
-        <section  class="row card"> -->
+        <!-- SECTION MODALS -->
+        <div class="modal fade" id="postFormModal" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
 
-      <!-- USER PROFILE -->
-      <!-- <div class="col-12 userProfile d-flex align-items-center">
-            <img height="69" alt="UserName"
-              src="https://media.istockphoto.com/id/1337144146/vector/default-avatar-profile-icon-vector.jpg?s=612x612&w=0&k=20&c=BIbFwuv7FxTWvh5S3vB6bkT0Qv8Vn8N5Ffseq84ClGI=">
-            <span class="d-block">
-              <p class="mb-0">${this.creatorId.name}</p>
-              <p class="mb-0">${this.location}</p>
-            </span>
-          </div> -->
-      <!-- IMG BODY -->
-      <!-- <div class="col-12 p-0 imgBody"><img class="img-fluid"
-              src="https://images.unsplash.com/photo-1594329852649-012d9528deda?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c2NlbmljfGVufDB8fDB8fHww"> -->
-      <!-- </div> -->
-      <!-- POST BODY -->
-      <!-- <div class="col-12 postBody">
-            <span class="d-flex justify-content-between">
-              <span class="d-flex align-items-center">
-                <i class="fs-3 mdi mdi-thumb-up-outline"></i>
-                <i class="fs-3 mdi mdi-thumb-up"></i>
-                <p class="mb-0">${this.likes}</p>
-              </span>
-              <span class="d-flex align-items-center">
-                <p class="mb-0">${this.dislikes}</p>
-                <i class="fs-3 mdi mdi-thumb-down-outline"></i>
-                <i class="fs-3 mdi mdi-thumb-down"></i>
-              </span>
-            </span>
-            <p class="">${this.creatorId.name} • ${this.description}</p>
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="modalTitle">Create Post</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
 
-          </div> -->
+              <div class="modal-body">
+                <!-- FORM -->
+                <form onsubmit="app.PostsController.createPost(event)">
 
-      <!-- </section>
-      </div> -->
+                  <div class="form-floating mb-3">
+                    <input required type="text" name="description" class="form-control" id="description"
+                      placeholder="description...." minlength="1" maxlength="250">
+                    <label for="description">description</label>
+                  </div>
 
-    </section>
+                  <div class="form-floating mb-3">
+                    <input type="url" name="imgUrl" class="form-control" id="imgUrl" placeholder="ImgUrl..."
+                      maxlength="500">
+                    <label for="imgUrl">Image Url</label>
+                  </div>
+
+                  <div class="form-floating mb-3">
+                    <input type="text" name="location" class="form-control" id="location" placeholder="Location..."
+                      minlength="2" maxlength="50">
+                    <label for="location">Location</label>
+                  </div>
+
+                  <div class="text-end">
+                    <button type="submit" class="btn btn-outline-success">Submit</button>
+                  </div>
+
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="col-12 col-xxl-10 p-3 pe-xxl-3" id="imageBoard">
+        <!-- DRAW POSTS -->
+
+      </section>
+    </div>
     <!-- !SECTION -->
-
-
-
   </main>
-
-  <!-- SECTION FOOTER -->
-  <footer class="bg-dark text-light padding-2">
-    <div class="text-center no-select">
-      <p class="mb-0"><small>Made by 🧙‍♂️🦸‍♂️👨‍🏭🧘🏼‍♀️</small></p>
-    </div>
-  </footer>
-
-
-  <div class="modal fade" id="postFormModal" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="modalTitle">Create Post</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <!-- FORM -->
-          <form onsubmit="app.PostsController.createPost(event)">
-
-            <div class="form-floating mb-3">
-              <input required type="text" name="description" class="form-control" id="description"
-                placeholder="description...." minlength="1" maxlength="250">
-              <label for="description">description</label>
-            </div>
-
-            <div class="form-floating mb-3">
-              <input type="url" name="imgUrl" class="form-control" id="imgUrl" placeholder="ImgUrl..." maxlength="500">
-              <label for="imgUrl">Image Url</label>
-            </div>
-            <div class="form-floating mb-3">
-              <input type="text" name="location" class="form-control" id="location" placeholder="Location..."
-                minlength="10" maxlength="50">
-              <label for="location">Location</label>
-            </div>
-
-
-            <div class="text-end">
-              <button type="submit" class="btn btn-outline-success">Submit</button>
-            </div>
-
-          </form>
-
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-
 
   <div class="modal fade" id="activePostModal" tabindex="-1" aria-labelledby="activePostModal" aria-hidden="true">
     <div class="modal-dialog modal-xl">
       <div class="modal-content">
+
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="activePostModal"></h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
+
         <div class="modal-body">
           <div class="container-fluid">
-            <section id="postDetails" class="row"></section>
-
-
+            <section id="postDetails" class="row">
+              <!-- DRAW ACTIVE POST -->
+            </section>
           </div>
         </div>
-        <div class="modal-footer d-flex justify-content-between">
-          <button onclick="app.PostsController.removePost()" type="button" class="btn btn-danger"
-            data-bs-dismiss="modal">Delete</button>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+        <div class="modal-footer d-flex justify-content-between" id="activeModalFooter">
+          <!-- DRAW ACTIVE POST FOOTER -->
         </div>
+
       </div>
     </div>
   </div>

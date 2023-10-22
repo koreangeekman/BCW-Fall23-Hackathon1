@@ -20,7 +20,6 @@ class PostsService {
     AppState.emit('posts')
   }
 
-
   async setActivePost(postId) {
     const foundPost = AppState.posts.find(post => post.id == postId)
     // console.log(foundPost)
@@ -40,8 +39,8 @@ class PostsService {
   }
 
   sortByDates() {
+    // @ts-ignore
     AppState.posts = AppState.posts.sort((a, b) => b.createdAt - a.createdAt)
-
   }
 
   sortByLikes() {

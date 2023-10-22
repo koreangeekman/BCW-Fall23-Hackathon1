@@ -15,15 +15,25 @@ function _drawPosts() {
 
 function _drawActivePost() {
   const post = AppState.activePost
-  setHTML('postDetails', post.PostActiveTemplate)
+  setHTML('postDetails', post?.PostActiveTemplate)
+  // @ts-ignore
   bootstrap.Modal.getOrCreateInstance('#activePostModal').show()
 }
+
+function _drawDeletePost() {
+  const post = AppState.activePost
+  let content = post?.ComputeDeleteButton
+  content += `
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+    `
+  setHTML('activeModalFooter', content)
+}
+
 export class PostsController {
   constructor() {
     // console.log('controller is good')
     this.getPosts()
     AppState.on('posts', _drawPosts)
-    AppState.on('activePost', _drawActivePost)
     AppState.on('liked', _drawActivePost)
   }
 
@@ -51,11 +61,11 @@ export class PostsController {
       Pop.error(error)
     }
   }
-  setActivePost(postId) {
+  async setActivePost(postId) {
     try {
-
-      postsService.setActivePost(postId)
-
+      await postsService.setActivePost(postId)
+      _drawActivePost()
+      _drawDeletePost()
     } catch (error) {
       Pop.error(error)
     }

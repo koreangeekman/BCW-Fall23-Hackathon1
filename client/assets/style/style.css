@@ -3,17 +3,19 @@ body {
   background-image: url("https://media.istockphoto.com/id/1463995841/vector/hibiscus-flower-seamless-pattern-vector-illustration-batik-floral-design-background.jpg?s=612x612&w=0&k=20&c=mfB1oUQ4nckocnPCFKBFuRLhNqYDAMeF8XJkyCurCZ8=");
 }
 
+/* footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+} */
+
 nav img {
   box-shadow: 0 0 8px #E18700;
 }
 
-#imageBoard {
-  margin: -88px 180px 0 180px;
-}
-
 .authArea {
   background-color: #8e8e8e24;
-  box-shadow: 0 0 8px #ababab8b;
+  box-shadow: 0 0 1rem #8e8e8e8b;
   /* text-shadow: 0 0 2px black; */
   border-radius: 2rem;
 }
@@ -47,6 +49,12 @@ nav img {
 
 /* SECTION IMAGE GALLERY */
 
+#imageBoard {
+  /* margin: -88px 180px 0 180px; */
+  height: 100dvh;
+  overflow-y: scroll;
+}
+
 .postCard {
   pointer-events: none;
   background-color: transparent;
@@ -70,6 +78,7 @@ nav img {
 .imgBody {
   border: 48px solid;
   border-image: url("https://doogeveneers.com/sites/default/files/styles/flexslider_full/public/birch-white-2.jpg") 32;
+  pointer-events: auto;
 }
 
 .imgBody img {
@@ -77,7 +86,6 @@ nav img {
   width: 100%;
   object-fit: cover;
   object-position: center;
-  pointer-events: auto;
 }
 
 /* SECTION ACTIVE IMAGE */
@@ -91,9 +99,18 @@ nav img {
 
 #commentDetails {
   overflow-y: scroll;
-  height: 40dvh;
+  height: 33dvh;
   scrollbar-color: red orange;
   scrollbar-width: thin;
+}
+
+.commentCard {
+  border-radius: .25rem;
+  box-shadow: 1px 1px 3px rgba(128, 128, 128, 0.5);
+}
+
+.liked {
+  line-height: 2rem;
 }
 
 .smallText {
@@ -103,9 +120,11 @@ nav img {
   text-align: right;
 }
 
+/* SECTION MEDIA  */
+
 @media (max-width:1200px) {
   #imageBoard {
-    margin: -1rem 1rem;
+    /* margin: 1rem 1rem; */
   }
 
 }

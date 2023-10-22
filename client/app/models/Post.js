@@ -1,3 +1,5 @@
+import { AppState } from "../AppState.js"
+
 export class Post {
   constructor(data) {
     this.id = data.id
@@ -8,17 +10,16 @@ export class Post {
     this.createdAt = new Date(data.createdAt)
     this.updatedAt = new Date(data.updatedAt)
     this.creator = data.creator
-    this.likeCount = data.likeCount
+    this.likeCount = data.likeCount || 0
     this.liked = data.liked || false
   }
 
   get PostCardTemplate() {
     return `
-      <div class="col-12 m-0 p-0">
         <section class="row postCard p-3 pb-0 my-3">
 
           <!-- IMG BODY -->
-          <div onclick="app.PostsController.setActivePost('${this.id}')" class="col-12 p-0 imgBody">
+          <div class="col-12 p-0 imgBody" onclick="app.PostsController.setActivePost('${this.id}')">
             <img class="img-fluid" src="${this.imgUrl}">
           </div>
 
@@ -42,50 +43,54 @@ export class Post {
           </div>
 
         </section>
-      </div>
     `
   }
-
 
   get PostActiveTemplate() {
     return `
-    <div class="col-12 col-md-7 data-bs-toggle="modal" data-bs-target="#postFormModal">
-      <img class="activeImg" src="${this.imgUrl}" alt="">
+    <div class="col-12 col-xxl-8" data-bs-toggle="modal" data-bs-target="#postFormModal">
+      <img class="activeImg rounded" src="${this.imgUrl}" alt="">
     </div>
-    <div class="col-12 col-md-5">
-      <span class="d-flex justify-content-between align-items-center">
-        <h5>At: ${this.location}</h5>
-        <span>
-          <p class="smallText mb-0">${this.createdAt.toLocaleDateString()}</p>
-          <p class="smallText mb-0">${this.updatedAt.toLocaleTimeString()}</p>
+    <div class="col-12 col-xxl-4">
+      <span>
+        <span class="d-flex justify-content-between align-items-center">
+          <h5>At: ${this.location}</h5>
+          <span>
+            <p class="smallText mb-0">${this.createdAt.toLocaleDateString()}</p>
+            <p class="smallText mb-0">${this.updatedAt.toLocaleTimeString()}</p>
+          </span>
         </span>
+        <p>${this.description}</p>
       </span>
-        <form onsubmit="app.CommentsController.createComment(event)">
-          <div class="form-floating mb-3">
-            <input required type="text" name="body" class="form-control" id="body"
-              placeholder="comment...." maxlength="250">
-            <label for="body">Comment</label>
-            <div class="d-flex justify-content-between">
-              <button type="submit" class="p-2 btn btn-success">Comment</button>
-            </div>
-          </div>
-        </form>
-        ${this.ifLikedToggle}
-        <section id="commentDetails" class="row"></section>
-      </div>
+      <hr>
+      <section id="commentDetails" class="p-2">
+        <!-- DRAW COMMENTS HERE -->
+      </section>
+      <hr>
+      <form onsubmit="app.CommentsController.createComment(event)">
+        <div class="form-floating my-3">
+          <input required type="text" name="body" class="form-control" id="body"
+            placeholder="comment...." maxlength="250">
+          <label for="body">Comment</label>
+        </div>
+        <span class="d-flex justify-content-between align-items-center">
+          <button type="submit" class="px-2 btn btn-success">Comment</button>
+          ${this.ifLikedToggle}
+        </span>
+      </form>
+      <hr>
     </div>
     `
   }
-
 
   get ifLikedToggle() {
     if (this.liked) {
       return `
-        <i type="button" class="mdi mdi-heart fs-2 text-danger" onclick="app.LikesController.removeLike()"></i>
+        <i type="button" class="liked mdi mdi-heart fs-2 text-danger" onclick="app.LikesController.removeLike()"></i>
       `
     }
     return `
-        <i type="button" class="mdi mdi-heart-outline fs-2 text-danger" onclick="app.LikesController.createLike()"></i>
+        <i type="button" class="liked mdi mdi-heart-outline fs-2 text-danger" onclick="app.LikesController.createLike()"></i>
     `
   }
 
@@ -98,6 +103,16 @@ export class Post {
     return `
         <i class="fs-3 mdi mdi-heart-outline"></i>
     `
+  }
+
+  get ComputeDeleteButton() {
+    if (AppState.account?.id == this.creatorId) {
+      return `
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+            onclick="app.PostsController.removePost()">Delete</button>
+            `
+    }
+    return '&nbsp'
   }
 
 }
