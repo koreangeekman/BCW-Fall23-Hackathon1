@@ -1,9 +1,6 @@
 import { dbContext } from "../db/DbContext.js";
 import { BadRequest, Forbidden } from "../utils/Errors.js";
 
-
-
-
 class LikesService {
     async getLikes() {
         const likes = await dbContext.Likes.find()
@@ -17,12 +14,10 @@ class LikesService {
         return like
     }
 
-    async getLikesByPostId(postId, userId) {
+    async getUserLikesByPostId(postId, userId) {
         const likes = await dbContext.Likes.find({ postId: postId, creatorId: userId }).populate('creator', '-email -subs')
         return likes
     }
-
-
 
     async destroyLikes(likeId, userId) {
         const like = await dbContext.Likes.findById(likeId).populate('creator post')
@@ -40,6 +35,5 @@ class LikesService {
     }
 
 }
-
 
 export const likesService = new LikesService()

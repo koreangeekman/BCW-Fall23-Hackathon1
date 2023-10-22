@@ -31,7 +31,7 @@
             <p class="mb-0"><small>Made by 🧙‍♂️🦸‍♂️👨‍🏭🧘🏼‍♀️</small></p>
           </div>
           <div class="text-center align-self-baseline textFont authArea p-2 mt-3">
-            <div class="d-flex justify-content-end align-items-center text-dark" id="authstate">
+            <div class="d-flex justify-content-center align-items-center text-dark" id="authstate">
               <!-- DRAW AUTH STATE + AUTHORIZED ACTION -->
             </div>
             <div class="dropdown">
@@ -49,64 +49,62 @@
             </div>
           </div>
         </nav>
-
-        <!-- SECTION MODALS -->
-        <div class="modal fade" id="postFormModal" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-
-              <div class="modal-header">
-                <h1 class="modal-title fs-5" id="modalTitle">Create Post</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-
-              <div class="modal-body">
-                <!-- FORM -->
-                <form onsubmit="app.PostsController.createPost(event)">
-
-                  <div class="form-floating mb-3">
-                    <input required type="text" name="description" class="form-control" id="description"
-                      placeholder="description...." minlength="1" maxlength="250">
-                    <label for="description">description</label>
-                  </div>
-
-                  <div class="form-floating mb-3">
-                    <input type="url" name="imgUrl" class="form-control" id="imgUrl" placeholder="ImgUrl..."
-                      maxlength="500">
-                    <label for="imgUrl">Image Url</label>
-                  </div>
-
-                  <div class="form-floating mb-3">
-                    <input type="text" name="location" class="form-control" id="location" placeholder="Location..."
-                      minlength="2" maxlength="50">
-                    <label for="location">Location</label>
-                  </div>
-
-                  <div class="text-end">
-                    <button type="submit" class="btn btn-outline-success">Submit</button>
-                  </div>
-
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
       </section>
 
       <section class="col-12 col-xxl-10 p-3 pe-xxl-3" id="imageBoard">
         <!-- DRAW POSTS -->
-
       </section>
     </div>
     <!-- !SECTION -->
   </main>
 
-  <div class="modal fade" id="activePostModal" tabindex="-1" aria-labelledby="activePostModal" aria-hidden="true">
+  <!-- SECTION MODALS -->
+  <div class="modal fade" id="postFormModal" tabindex="-1" aria-labelledby="postFormModalTitle" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="postFormModalTitle">Create Post</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body">
+          <!-- FORM -->
+          <form onsubmit="app.PostsController.createPost(event)">
+
+            <div class="form-floating mb-3">
+              <input required type="text" name="description" class="form-control" id="description"
+                placeholder="description...." minlength="1" maxlength="250">
+              <label for="description">description</label>
+            </div>
+
+            <div class="form-floating mb-3">
+              <input type="url" name="imgUrl" class="form-control" id="imgUrl" placeholder="ImgUrl..." maxlength="500">
+              <label for="imgUrl">Image Url</label>
+            </div>
+
+            <div class="form-floating mb-3">
+              <input type="text" name="location" class="form-control" id="location" placeholder="Location..."
+                minlength="2" maxlength="50">
+              <label for="location">Location</label>
+            </div>
+
+            <div class="text-end">
+              <button type="submit" class="btn btn-outline-success">Submit</button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="activePostModal" tabindex="-1" aria-labelledby="activePostModalTitle" aria-hidden="true">
     <div class="modal-dialog modal-xl">
       <div class="modal-content">
 
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="activePostModal"></h1>
+          <h1 class="modal-title fs-5" id="activePostModalTitle"></h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
 

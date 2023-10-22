@@ -10,7 +10,6 @@ function drawUser() {
   const template = /* html */ `
     <div class="d-block">
       <div class="d-flex mb-2">${userAvatar}${button}</div>
-      
     </div>
   `
   // @ts-ignore
@@ -53,8 +52,7 @@ function authButton(user) {
         <i class="mdi mdi-logout-variant f-16 text-secondary"></i></button>
     
         <button class="btn btnGrey d-flex form-control justify-content-center mt-2" data-bs-toggle="modal"
-        data-bs-target="#postFormModal">Create Post
-      </button>
+        data-bs-target="#postFormModal">Create Post</button>
     </div>
   `
     : /* html */ `
@@ -64,15 +62,10 @@ function authButton(user) {
 
 function avatarTemplate(account) {
   return account
-    ? /* html */ `
-    <div class="mr-2">
-
-      </div>`
+    ? /* html */ ``
     : AuthService.loading
       ? /* html */ `
       <div class="skeleton-loader dark avatar"></div>
       <div class="skeleton-loader dark text sm mx-2"></div>`
-      : /* html */`
-      <div></div>
-      `
+      : /* html */``
 }

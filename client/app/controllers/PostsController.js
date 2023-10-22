@@ -33,6 +33,7 @@ export class PostsController {
   constructor() {
     // console.log('controller is good')
     this.getPosts()
+    // AppState.on('account', postsService.getPostsAsMember)
     AppState.on('posts', _drawPosts)
     AppState.on('liked', _drawActivePost)
   }

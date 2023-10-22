@@ -6,6 +6,7 @@ export const PostSchema = new Schema({
     },
     location: { type: String, required: true, maxLength: 50 },
     description: { type: String, required: true, maxLength: 250 },
+    // liked: { type: Array, required: false },
     creatorId: { type: Schema.Types.ObjectId, required: true, ref: "Account" },
 }, { timestamps: true, toJSON: { virtuals: true } })
 

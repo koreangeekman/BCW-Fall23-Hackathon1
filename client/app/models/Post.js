@@ -48,8 +48,8 @@ export class Post {
 
   get PostActiveTemplate() {
     return `
-    <div class="col-12 col-xxl-8" data-bs-toggle="modal" data-bs-target="#postFormModal">
-      <img class="activeImg rounded" src="${this.imgUrl}" alt="">
+    <div class="col-12 col-xxl-8">
+      <img class="activeImg rounded" src="${this.imgUrl}" alt="${this.location}">
     </div>
     <div class="col-12 col-xxl-4">
       <span>
@@ -75,11 +75,20 @@ export class Post {
         </div>
         <span class="d-flex justify-content-between align-items-center">
           <button type="submit" class="px-2 btn btn-success">Comment</button>
-          ${this.ifLikedToggle}
+          ${this.ifLoggedIn}
         </span>
       </form>
       <hr>
     </div>
+    `
+  }
+
+  get ifLoggedIn() {
+    if (AppState.account?.id) {
+      return this.ifLikedToggle
+    }
+    return `
+      <i type="button" class="liked mdi mdi-heart-outline fs-2 text-danger" onclick="app.AuthController.login()"></i>
     `
   }
 

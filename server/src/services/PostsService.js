@@ -1,5 +1,6 @@
 import { dbContext } from "../db/DbContext.js"
 import { BadRequest, Forbidden } from "../utils/Errors.js"
+import { likesService } from "./LikesService.js"
 
 class PostsService {
 
@@ -17,6 +18,18 @@ class PostsService {
     }
 
     // vv AUTHORIZATION REQUIRED BELOW vv
+
+    // async getPostsAsMember(userInfo) {
+    //     const posts = await dbContext.Posts.find().populate('creator likeCount', '-email -subs')
+    //     const postsLiked = await Promise.all(
+    //         posts.map(async post => {
+    //             let liked = await likesService.getUserLikesByPostId(post.id, userInfo.id);
+    //             post.liked = liked
+    //             return post
+    //         })
+    //     )
+    //     return postsLiked
+    // }
 
     async createPost(postData) {
         const newPost = await dbContext.Posts.create(postData)

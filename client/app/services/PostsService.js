@@ -13,6 +13,14 @@ class PostsService {
     this.sortByLikes()
   }
 
+  // async getPostsAsMember() {
+  //   const res = await api.get('api/member/posts');
+  //   // console.log('Got Posts', res.data);
+  //   // const newPosts = res.data.map((postPOJO) => new Post(postPOJO))
+  //   // AppState.posts = newPosts
+  //   // this.sortByLikes()
+  // }
+
   async createPost(postData) {
     const res = await api.post('api/posts', postData)
     const newPosts = new Post(res.data)

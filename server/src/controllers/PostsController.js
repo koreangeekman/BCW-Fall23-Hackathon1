@@ -6,25 +6,23 @@ import { commentsService } from "../services/CommentsService.js";
 
 export class PostsController extends BaseController {
     constructor() {
-        super('api/posts')
+        super('api')
         this.router
-            .get('', this.getPosts)
-            .get('/:postId', this.getPostById)
-            .get('/:postId/comments', this.getCommentsByPostId)
+            .get('/posts/', this.getPosts)
+            .get('/posts/:postId', this.getPostById)
+            .get('/posts/:postId/comments', this.getCommentsByPostId)
             .use(Auth0Provider.getAuthorizedUserInfo)
-            .get('/:postId/likes', this.getLikesByPostId)
-            .post('', this.createPost)
-            .put('/:postId', this.updatePost)
-            .delete('/:postId', this.deletePost)
+            // .get('/member/posts', this.getPostsAsMember)
+            .get('/posts/:postId/likes', this.getUserLikesByPostId)
+            .post('posts/', this.createPost)
+            .put('/posts/:postId', this.updatePost)
+            .delete('/posts/:postId', this.deletePost)
     }
 
     async getPosts(req, res, next) {
         try {
-
             const posts = await postsService.getPosts()
             return res.send(posts)
-
-
         } catch (error) { next(error) }
     }
 
@@ -33,7 +31,6 @@ export class PostsController extends BaseController {
             const postId = req.params.postId
             const post = await postsService.getPostById(postId)
             return res.send(post)
-
         } catch (error) { next(error) }
     }
 
@@ -42,20 +39,23 @@ export class PostsController extends BaseController {
             const postId = req.params.postId
             const comments = await commentsService.getCommentsByPostId(postId)
             return res.send(comments)
-        } catch (error) {
-            next(error)
-        }
+        } catch (error) { next(error) }
     }
 
     // vv AUTHORIZATION REQUIRED BELOW vv
 
-    async getLikesByPostId(req, res, next) {
+    // async getPostsAsMember(req, res, next) {
+    //     try {
+    //         const posts = await postsService.getPostsAsMember(req.userInfo.id)
+    //         return res.send(posts)
+    //     } catch (error) { next(error) }
+    // }
+
+    async getUserLikesByPostId(req, res, next) {
         try {
-            const likesByPostId = await likesService.getLikesByPostId(req.params.postId, req.userInfo.id)
+            const likesByPostId = await likesService.getUserLikesByPostId(req.params.postId, req.userInfo.id)
             return res.send(likesByPostId)
-        } catch (error) {
-            next(error)
-        }
+        } catch (error) { next(error) }
     }
 
     async createPost(req, res, next) {
