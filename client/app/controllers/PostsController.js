@@ -61,7 +61,7 @@ export class PostsController {
       bootstrap.Modal.getOrCreateInstance('#postFormModal').hide()
       Pop.success('New post successfully created')
     } catch (error) {
-      console.log(error)
+      console.error(error)
       Pop.error(error)
     }
   }

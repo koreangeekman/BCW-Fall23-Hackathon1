@@ -30,7 +30,7 @@ export class LikesController {
   async createLike() {
     try {
       const newLike = await likesService.createLike()
-      console.log(newLike)
+      // console.log(newLike)
     } catch (error) {
       console.error(error)
       Pop.error(error)
