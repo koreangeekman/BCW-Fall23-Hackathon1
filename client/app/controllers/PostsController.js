@@ -30,9 +30,9 @@ function _drawDeletePost() {
   setHTML('activeModalFooter', content)
 }
 
-function _drawLikeStatus() {
-  likesService
-}
+// function _drawLikeStatus() {
+//   likesService.getLike()
+// }
 
 export class PostsController {
   constructor() {
@@ -71,8 +71,10 @@ export class PostsController {
       await postsService.setActivePost(postId)
       await _drawActivePost()
       await _drawDeletePost()
-      await likesService.getLike(postId)
-      _drawLikeStatus()
+      if (AppState.account) {
+        await likesService.getLike(postId)
+      }
+      // _drawLikeStatus()
     } catch (error) {
       Pop.error(error)
     }

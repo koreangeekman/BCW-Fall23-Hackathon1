@@ -67,7 +67,15 @@ export class Post {
         <!-- DRAW COMMENTS HERE -->
       </section>
       <hr>
-      <form onsubmit="app.CommentsController.createComment(event)">
+      ${this.IfLoggedIn}
+    </div>
+    `
+  }
+
+  get IfLoggedIn() {
+    if (AppState.account) {
+      return `
+    <form onsubmit="app.CommentsController.createComment(event)">
         <div class="form-floating my-3">
           <input required type="text" name="body" class="form-control" id="body"
             placeholder="comment...." maxlength="250">
@@ -78,8 +86,9 @@ export class Post {
         </span>
       </form>
       <hr>
-    </div>
     `
+    }
+    return ''
   }
 
   // get ifLikedToggle() {
