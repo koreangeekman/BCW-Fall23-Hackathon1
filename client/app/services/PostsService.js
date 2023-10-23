@@ -34,8 +34,6 @@ class PostsService {
     if (!foundPost) {
       throw new Error(`bad post id: ${postId}`)
     }
-    const liked = await likesService.getLike(foundPost.id);
-    foundPost.liked = liked;
     AppState.activePost = foundPost
   }
 

@@ -75,7 +75,6 @@ export class Post {
         </div>
         <span class="d-flex justify-content-between align-items-center">
           <button type="submit" class="px-2 btn btn-success">Comment</button>
-          ${this.ifLoggedIn}
         </span>
       </form>
       <hr>
@@ -83,25 +82,16 @@ export class Post {
     `
   }
 
-  get ifLoggedIn() {
-    if (AppState.account?.id) {
-      return this.ifLikedToggle
-    }
-    return `
-      <i type="button" class="liked mdi mdi-heart-outline fs-2 text-danger" onclick="app.AuthController.login()"></i>
-    `
-  }
-
-  get ifLikedToggle() {
-    if (this.liked) {
-      return `
-        <i type="button" class="liked mdi mdi-heart fs-2 text-danger" onclick="app.LikesController.removeLike()"></i>
-      `
-    }
-    return `
-        <i type="button" class="liked mdi mdi-heart-outline fs-2 text-danger" onclick="app.LikesController.createLike()"></i>
-    `
-  }
+  // get ifLikedToggle() {
+  //   if (this.liked) {
+  //     return `
+  //       <i type="button" class="liked mdi mdi-heart fs-2 text-danger" onclick="app.LikesController.removeLike()"></i>
+  //     `
+  //   }
+  //   return `
+  //       <i type="button" class="liked mdi mdi-heart-outline fs-2 text-danger" onclick="app.LikesController.createLike()"></i>
+  //   `
+  // }
 
   get ifLikedShow() {
     if (this.liked) {

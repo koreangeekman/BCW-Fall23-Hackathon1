@@ -1,4 +1,5 @@
 import { AppState } from "../AppState.js"
+import { likesService } from "../services/LikesService.js"
 import { postsService } from "../services/PostsService.js"
 import { getFormData } from "../utils/FormHandler.js"
 import { Pop } from "../utils/Pop.js"
@@ -29,13 +30,15 @@ function _drawDeletePost() {
   setHTML('activeModalFooter', content)
 }
 
+function _drawLikeStatus() {
+  likesService
+}
+
 export class PostsController {
   constructor() {
-    // console.log('controller is good')
     this.getPosts()
     // AppState.on('account', postsService.getPostsAsMember)
     AppState.on('posts', _drawPosts)
-    AppState.on('liked', _drawActivePost)
   }
 
   async getPosts() {
@@ -64,9 +67,12 @@ export class PostsController {
   }
   async setActivePost(postId) {
     try {
+      likesService.nullLikes();
       await postsService.setActivePost(postId)
-      _drawActivePost()
-      _drawDeletePost()
+      await _drawActivePost()
+      await _drawDeletePost()
+      await likesService.getLike(postId)
+      _drawLikeStatus()
     } catch (error) {
       Pop.error(error)
     }
