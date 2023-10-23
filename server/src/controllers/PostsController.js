@@ -6,17 +6,17 @@ import { commentsService } from "../services/CommentsService.js";
 
 export class PostsController extends BaseController {
     constructor() {
-        super('api')
+        super('api/posts')
         this.router
-            .get('/posts/', this.getPosts)
-            .get('/posts/:postId', this.getPostById)
-            .get('/posts/:postId/comments', this.getCommentsByPostId)
+            .get('', this.getPosts)
+            .get('/:postId', this.getPostById)
+            .get('/:postId/comments', this.getCommentsByPostId)
             .use(Auth0Provider.getAuthorizedUserInfo)
             // .get('/member/posts', this.getPostsAsMember)
-            .get('/posts/:postId/likes', this.getUserLikesByPostId)
-            .post('posts/', this.createPost)
-            .put('/posts/:postId', this.updatePost)
-            .delete('/posts/:postId', this.deletePost)
+            .get('/:postId/likes', this.getUserLikesByPostId)
+            .post('', this.createPost)
+            .put('/:postId', this.updatePost)
+            .delete('/:postId', this.deletePost)
     }
 
     async getPosts(req, res, next) {
