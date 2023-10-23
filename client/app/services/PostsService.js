@@ -45,12 +45,25 @@ class PostsService {
   }
 
   sortByDates() {
+    if (AppState.sort == 'dates') {
+      // @ts-ignore
+      AppState.posts = AppState.posts.sort((a, b) => a.createdAt - b.createdAt)
+      AppState.sort = 'datesInv'
+      return
+    }
     // @ts-ignore
     AppState.posts = AppState.posts.sort((a, b) => b.createdAt - a.createdAt)
+    AppState.sort = 'dates'
   }
 
   sortByLikes() {
+    if (AppState.sort == 'likes') {
+      AppState.posts = AppState.posts.sort((a, b) => a.likeCount - b.likeCount)
+      AppState.sort = 'likesInv'
+      return
+    }
     AppState.posts = AppState.posts.sort((a, b) => b.likeCount - a.likeCount)
+    AppState.sort = 'likes'
   }
 }
 

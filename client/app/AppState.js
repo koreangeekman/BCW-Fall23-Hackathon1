@@ -25,6 +25,8 @@ class ObservableAppState extends EventEmitter {
 
   liked = false
 
+  sort = 'likesInv'
+
   init() {
 
   }
